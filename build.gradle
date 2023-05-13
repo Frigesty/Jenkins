@@ -17,6 +17,15 @@ dependencies {
     )
 }
 
+tasks.withType(Test) {
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
 allure {
     report {
         version.set("2.22.0")
